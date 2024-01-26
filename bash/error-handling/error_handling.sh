@@ -15,12 +15,15 @@
 #   # ...
 #
 main () {
+    if [ $# -gt 1 -o $# -lt 1 ]; then
+        echo "Usage: error_handling.sh <person>"
+        exit 1
+    fi
     for x in "$@"; do
-        echo "One for $x, one for me."
+        echo "Hello, $x"
         exit
     done
-    echo "One for you, one for me."
 }
-
+#
 # call main with all of the positional arguments
 main "$@"
